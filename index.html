@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flip Card</title>
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        padding: 5%;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
+
+      body {
+        min-height: 100vh;
+        background-color: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        font-family: "Roboto", sans-serif;
+      }
+
       .flip-card {
         position: relative;
-        width: 547px;
-        height: 885px;
-        perspective: 1000px;
-        transform-style: preserve-3d;
+        width: 694px;
+        height: 1040px;
       }
+
       .flip-card-front,
       .flip-card-back {
         position: absolute;
-        transition: transform 0.6s;
+        transition: transform 0.5s;
         backface-visibility: hidden;
         width: 100%;
         height: 100%;
@@ -28,13 +38,43 @@
       }
       .flip-card-front {
         background-image: url("assets/front_bg.jpg");
-        /* background-size: contain; */
+        background-size: contain;
         color: white;
       }
+
+      .card {
+        background-image: url("assets/bg.jpg");
+        /* width: 547px; */
+        padding: 6%;
+        /* height: 821px; */
+        background-size: contain;
+      }
+      .blur {
+        background-color: rgba(128, 128, 128, 0.281);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+      .front-title {
+        position: absolute;
+        bottom: 6.667%;
+        left: 11.335%;
+        right: 33.4%;
+        top: 79.096%;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        font-size: 36px;
+        color: #ffffff;
+        line-height: 42px;
+      }
+
       .flip-card-back {
         background-color: white;
         color: black;
-        transform: rotateY(180deg);
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        /* transform: rotateY(180deg); */
       }
 
       .flip-card:hover .flip-card-back {
@@ -44,21 +84,179 @@
         transform: rotateY(-180deg);
       }
 
-      .card {
-        background-image: url(assets/bg.jpg);
-        /* width: 547px; */
-        padding: 6%;
-        /* height: 821px; */
-        background-size: contain;
+      .arrow-button-front {
+        /* position: absolute; */
+        bottom: 9.944%;
+        left: 76.6%;
+        right: 10.969%;
+        top: 82.373%;
+      }
+
+      .arrow-circle-front {
+        position: absolute;
+        bottom: 9.944%;
+        left: 76.6%;
+        right: 10.969%;
+        top: 82.373%;
+        border-radius: 100%;
+        border: 2.8px solid #19abfe;
+      }
+
+      .arrow-icon-front {
+        position: absolute;
+        bottom: 12.66%;
+        left: 80.804%;
+        right: 15.298%;
+        top: 84.931%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .arrow-svg-front {
+        transform: rotate(315deg);
+      }
+
+      .back-title {
+        /* position: absolute;
+        bottom: 6.667%;
+        left: 11.335%;
+        right: 33.4%;
+        top: 79.096%; */
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        color: #1e335c;
+        line-height: 42px;
+        margin-top: 1rem;
+      }
+      .icon {
+        margin-top: 10rem;
+      }
+      .flip-card-back p {
+        color: #6c7994;
+        font-size: 18px;
+        display: block;
+        white-space: pre-line;
+        word-break: break-all;
+        line-height: 1.8rem;
+      }
+
+      .arrow-button-back {
+        /* position: absolute; */
+        display: flex;
+        gap: 20px;
+        justify-content: end;
+        margin-top: 20rem;
+        align-items: center;
+      }
+
+      .arrow-circle-back {
+        /* position: absolute; */
+        /* bottom: 9.944%;
+        left: 76.6%; 
+        right: 10.969%;
+        top: 82.373%; */
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        border: 2.8px solid #19abfe;
+      }
+
+      .arrow-icon-back {
+        position: absolute;
+        bottom: 12.66%;
+        left: 80.804%;
+        right: 15.298%;
+        top: 84.931%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .arrow-svg-back {
+        /* transform: rotate(315deg); */
       }
     </style>
   </head>
   <body>
     <div class="card">
-      <div class="blur"></div>
+      <!-- <div class="blur"></div> -->
       <div class="flip-card">
-        <div class="flip-card-front">Front</div>
-        <div class="flip-card-back">Back</div>
+        <div class="flip-card-front">
+          <div class="front-title">
+            <p>Financial Sector Development Program</p>
+          </div>
+          <!-- Arrow button -->
+          <div class="arrow-button-front">
+            <div class="arrow-circle-front"></div>
+            <div class="arrow-icon-front">
+              <svg
+                class="arrow-svg-front"
+                fill="none"
+                preserveAspectRatio="none"
+                viewBox="0 0 21 17"
+              >
+                <g>
+                  <path
+                    d="M2 8.27784L19.3564 8.27783"
+                    stroke="#19ABFE"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.7"
+                  />
+                  <path
+                    d="M13.1384 2L19.476 8.3376L13.1384 14.6752"
+                    stroke="#19ABFE"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.7"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div class="icon"><img src="./assets/mapIcon.svg" alt="" /></div>
+          <h2 class="back-title">Financial Sector Development Program</h2>
+          <p>
+            The Program aims to develop a diversified and effective financial
+            sector to support the development of the Saudi Arabia's economy.
+          </p>
+          <!-- Arrow button -->
+          <div class="arrow-button-back">
+            <h2>Read More</h2>
+            <div class="click">
+            <div class="arrow-circle-back"></div>
+            <div class="arrow-icon-back">
+              <svg
+                class="arrow-svg-back"
+                fill="none"
+                preserveAspectRatio="none"
+                viewBox="0 0 21 17"
+              >
+                <g>
+                  <path
+                    d="M2 8.27784L19.3564 8.27783"
+                    stroke="#19ABFE"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.7"
+                  />
+                  <path
+                    d="M13.1384 2L19.476 8.3376L13.1384 14.6752"
+                    stroke="#19ABFE"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2.7"
+                  />
+                </g>
+              </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
